@@ -465,7 +465,7 @@ static void do_relocs(struct dso *dso, size_t *rel, size_t rel_size, size_t stri
 
 		if ((type == REL_TPOFF || type == REL_TPOFF_NEG)
 			&& def.dso->tls_id > static_tls_cnt) {
-			__builtin_debugtrap();
+			__builtin_trap();
 			error("Error relocating %s: %s: initial-exec TLS "
 				  "resolves to dynamic definition in %s",
 				  dso->name, name, def.dso->name);
